@@ -1,0 +1,26 @@
+{
+  "name": "Bamazon",
+  "version": "1.0.0",
+  "description": "The sensational new and superior competition to Amazon!  ### Please Note This is a school project meant to expand upon my skills with Node.Js and MySQL, not an actual Amazon competitor, I mean... what even?",
+  "main": "Bamazon.js",
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "inquirer": "^6.2.2",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Druidan/Bamazon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Druidan/Bamazon/issues"
+  },
+  "homepage": "https://github.com/Druidan/Bamazon#readme"
+}
