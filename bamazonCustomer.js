@@ -141,18 +141,19 @@ const customerFunctions = {
                                         break;
                                     case `I want to exit Bamazon`:
                                         console.log(`\n`)
+                                        const core = require(`./bamazon.js`)
                                         core.exitBamazon();
                                         break;
     } }) } }) } 
     }) }) },
 
     reduceStock: function(amount) {
-        console.log(`--------------------------\n`)
         newQuantity = itemQuantity-amount;
         let query = `UPDATE products SET stock_quantity = ${newQuantity} WHERE item_id = ${itemId}`;
         db.query(query, function(err, result) {
             if (err) throw err;
         })
+        const core = require(`./bamazon.js`)
         core.exitBamazon();
     },
 
