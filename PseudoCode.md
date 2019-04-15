@@ -55,7 +55,7 @@ This file contains all of my Pseudo Code and checklisting for this project. If y
 - [X] Establish requirements in new bamazon Manager js file:
   - [X] inquirer
   - [X] mysql database connection js
-  - [X] core bamazon doc.
+  - [X] core bamazonjs.
 - [X] Establish Manager Functions Object
 - [X] Export Manager Functions Object
 - [X] Import Manager Functions Object into BamazonJS.

@@ -6,11 +6,24 @@ This is a school project meant to expand upon my skills with Node.Js and MySQL, 
 ## Overview and Goals
 Bamazon is meant to be a command-line NodeJs and MySQL application whereby the user can view items for sale on a server, select items of interest, and purchase them.
 
+### Video Walkthrough (2.0)
+As of 2.0 we have a [Video Walkthrough](https://www.youtube.com/watch?v=cwEOhPpSBOE&feature=youtu.be) that explores the basic functionality of Bamazon!
+
 ## Versions
 _All of the versions below are listed in reverse chronological order with the latest version at the top._
 
 ### Version 2.0
-
+Success! We have officially launched Bamazon 2.0! With this newest version we have added the Bamazon Manager. We now provide the following functionality:
+  * Allow the user to go into either the storefront or the employee menu where you can find...
+  * Bamazon Manager: The real star of 2.0, which is essentially adding a whole new application's functionality to our current suite. Running Bamazon Manager gives access to the following -
+    * View Products for Sale
+      * If selected, this option will list all available items with their information.
+    * View Low Inventory
+      * If selected, this option will list all items with a current stock of less than five.
+    * Add to Inventory
+      * If selected, this option will display a prompt that will let a manager add more of any of the items in the store.
+    * Add New Product
+      * If selected, this option will display a prompt that will allow a manager to add a completely new product to the store.
 
 ### Version 1.1
 With the successful launch of Bamazon 1.0, we moved on to our future features, working on 1.1, and today I'm happy to announce that we have successfully updated to 1.1! with that we have added the following features:
@@ -29,23 +42,11 @@ The MVP of this project is that, when run, it must:
 * When the order goes through, display the total cost of the purchase to the player.
 
 ## Planned Future Version Benchmarks and Features
-* v-2.0: While the basic Bamazon experience is meant for customers, and we want to further push the user experience to new heights, we here at Bamazon want to make an app that is useful to sales managers as well.
-  * After the program is run, dilineate between the Bamazon StoreFront and Bamazon Manager - the two branches of our program.
-  * Bamazon StoreFront: The StoreFront needs to keep all of the functionality of our basic Bamazon MVP, while increasing the following -  
-    * Allow the user to view their cart at any time, and the total cost of their current selection.
-    * Give the option to remove items.
-    * Allow the user to continue shopping, exit the StoreFront, or exit the program entirely after a successful order.
-  * Bamazon Manager: The real star of 2.0 is adding what is essentially a whole new application's functionality to our current framework. Running this part of the app will allow for the following -
-    * Present the following options to the manager:
-      * View Products for Sale
-        * If selected, this option will list all available items with their information. If the goals of 1.1 are met, then the manager should be albe to narrow it down via category.
-      * View Low Inventory
-        * If selected, this option will list all items with a current stock of less than five.
-      * Add to Inventory
-        * If selected, this option will display a prompt that will let a manager add more of any of the items in the store.
-      * Add New Product
-        * If selected, this option will display a prompt that will allow a manager to add a completely new product to the store.
-      * After each action is complete, a new prompt should be given to the manager to allow them to choose a new action, exit Bamazon Manager, or exit the program entirely.
+* v-2.1: With the new Manager functionality, with want to make sure we aren't leaving our customer functionality behind. No, we want to further push the user experience to new heights.
+  * Allow the user to view their cart at any time, with all of their selected items and their total cost.
+  * Give the option to remove items from the cart.
+  * Allow the user to continue shopping after a successful order.
+
 
 * v-3.0: After 2.0, we will have expanded to include Managers in our functionality, but we believer that we can expand the manager's toolbox further by giving them supervisory capabilities. In many ways, this is like adding a whole third application's functionality to our app, which is why this is Bamazon 3.0, and not 2.X.
   * When Bamazon is run, and Bamazon Manager is chosen, we want to further dilineate between Managerial options and Supervisor options, so the manager will chose between the two.
@@ -62,8 +63,8 @@ The following NPM packages are going to be used in our Application:
 * [dotenv](https://www.npmjs.com/package/dotenv) - We will be using dotenv to keep our paswords secret, and keep them safe.
 
 ### Additional Dependancies:
-If our MVP for v1.0 is met, we will likely include the following NPMs in our future features:
-* [Figlet](https://www.npmjs.com/package/figlet) - This NPM will allow us to make highly readable and eyecatching titles and headers to help our users distinguish easily between screens and functionality.
+We are now currently using the following dependencies to enhance the UX experience:
+* [Figlet](https://www.npmjs.com/package/figlet) - This NPM allows us to make highly readable and eyecatching titles and headers to help our users distinguish easily between screens and functionality.
 * [Table](https://www.npmjs.com/package/table) - This NPM will allow us to structure our data for our users, again to enhance readability and thus usability. 
 
 
