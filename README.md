@@ -1,4 +1,4 @@
-# Bamazon
+# Bamazon v1.1
 The sensational new and superior competition to Amazon! 
 ### Please Note
 This is a school project meant to expand upon my skills with Node.Js and MySQL, not an actual Amazon competitor, I mean... what even?
@@ -6,7 +6,19 @@ This is a school project meant to expand upon my skills with Node.Js and MySQL, 
 ## Overview and Goals
 Bamazon is meant to be a command-line NodeJs and MySQL application whereby the user can view items for sale on a server, select items of interest, and purchase them.
 
-## MVP
+## Versions
+_All of the versions below are listed in reverse chronological order with the latest version at the top._
+
+### Version 2.0
+
+
+### Version 1.1
+With the successful launch of Bamazon 1.0, we moved on to our future features, working on 1.1, and today I'm happy to announce that we have successfully updated to 1.1! with that we have added the following features:
+  * We have made the UX clear and pronounced, partially through restructuring the console.logs, and partially through the use of the [Figlet](https://www.npmjs.com/package/figlet) npm.
+  * We've added the ability for the user to narrow down their item search through departments(category).
+  * We've updated our file structure to allow for easier future development in the next anticipated update - Bamazon 2.0. This includes a separate mysql connection file that can be required in each js file, and a more robust menu system in the core bamazon.js.
+
+### MVP (Version 1.0)
 The MVP of this project is that, when run, it must:
 * Introduce the Website and Its functionality
 * Display all the items for sale.
@@ -17,11 +29,6 @@ The MVP of this project is that, when run, it must:
 * When the order goes through, display the total cost of the purchase to the player.
 
 ## Planned Future Version Benchmarks and Features
-* v-1.1: While the basic MVP is very simple and streamlined, there are some basic improvements I want to make on the basic MVP:
-  * Make sure the UX is clear and pronounced. Possibly use NPMs to make the data and screens easier to read and parse for the average user.
-  * Allow the user to narrow down their item search through departments(category).
-  * Include a file structure that supports future development.
-
 * v-2.0: While the basic Bamazon experience is meant for customers, and we want to further push the user experience to new heights, we here at Bamazon want to make an app that is useful to sales managers as well.
   * After the program is run, dilineate between the Bamazon StoreFront and Bamazon Manager - the two branches of our program.
   * Bamazon StoreFront: The StoreFront needs to keep all of the functionality of our basic Bamazon MVP, while increasing the following -  

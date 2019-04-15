@@ -1,23 +1,8 @@
 //Establish Dependancies
-require(`dotenv`).config();
 const inquirer = require(`inquirer`);
-const mysql = require(`mysql`);
-const pswd = require(`./mysqlPswd`);
-
-//Establish MySQL Password from .env through mysqlPswd.js
-const MySQLPswd = pswd.mysqlPswd.pswd;
-
-const connection = mysql.createConnection( {
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: MySQLPswd,
-    database: "bamazon"
-});
-
-connection.connect(function(err) {
-    if (err) throw err;
-});
+const {table} = require(`table`);
+const db = require(`./mysqlConnection`);
+const core = require(`./bamazon`);
 
 //Customer Variables
 let itemId;
@@ -27,22 +12,65 @@ let quantityWanted;
 const customerFunctions = {
 
     displayWares: function() {
+        console.log(`--------------------------\n`)
+        let data = [
+            [`ID`,`Product`,`Price`,]
+        ];
         const query = `SELECT item_id, product_name, price FROM products WHERE stock_quantity > 0`;
-        connection.query(query, function(err, result) {
+            db.query(query, function(err, result) {
+                if (err) throw err;
+                result.forEach(item => {
+                    const itemArr =[item.item_id, item.product_name, `$${item.price}`];
+                    data.push(itemArr);
+                })
+                output = table(data);
+                console.log(output);
+                customerFunctions.whichItem();
+            })
+},
+
+    searchByCat: function() {
+        console.log(`--------------------------\n`)
+        categoryArr = [];
+        const query = `SELECT DISTINCT department_name FROM products`;
+        db.query(query, function(err, result) {
             if (err) throw err;
             result.forEach(item => {
-                console.log(`${item.item_id}.) ${item.product_name} - $${item.price}`);
+                categoryArr.push(item.department_name);
             })
-            console.log(`\n`)
+            inquirer.prompt({
+                name: `whichCat`,
+                type: `list`,
+                message: `Which category would you like to search?`,
+                choices: categoryArr, 
+            }).then(function(answer) {
+                customerFunctions.displayCat(answer.whichCat);
+    }) }) },
+
+    displayCat: function(cat) {
+        console.log(`--------------------------\n`)
+        let data = [
+            [`ID`,`Product`,`Price`,]
+        ];
+        db.query(`SELECT item_id, product_name, price FROM products WHERE ?`, { department_name: cat }, function(err, result) {
+            if (err) throw err;
+            result.forEach(item => {
+                const itemArr =[item.item_id, item.product_name, `$${item.price}`];
+                data.push(itemArr);
+            })
+            output = table(data);
+            console.log(output);
             customerFunctions.whichItem();
-    }) },
+        })
+    },
 
     whichItem: function() {
+        console.log(`--------------------------\n`)
         inquirer.prompt({
             name: `selection`,
             type: `input`,
-            message: `Which item do you wish to purchase? Type in the item's number.`
-        }).then(function(answer){
+            message: `Which item do you wish to purchase? Type in the item's ID.`
+        }).then(function(answer) {
             if(isNaN(answer.selection) || answer.selection <=0 ) {
                 console.log(`\nThat's not the number of any of our items, or it's written in a way our system can't recognize.  Please enter an item's number like "1", "2", "3", etc..\n`);
                 customerFunctions.whichItem();
@@ -54,13 +82,13 @@ const customerFunctions = {
     }) },
 
     howMany: function() {
+        console.log(`--------------------------\n`)
         inquirer.prompt({
             name: `quantity`,
             type: `input`,
             message: `How many would you like to purchase?`,
         }).then(function(answer){
-            connection.query(`SELECT stock_quantity, price FROM products WHERE ?`, { item_id: itemId }, function(err, result) {
-                console.log(result[0].stock_quantity);
+            db.query(`SELECT stock_quantity, price FROM products WHERE ?`, { item_id: itemId }, function(err, result) {
                 if (err) throw err;
                 if (isNaN(answer.quantity)) {
                     console.log(`\nThat's not a number our system can recognize.  Please enter a valid number.\n`);
@@ -75,7 +103,8 @@ const customerFunctions = {
                         if(response.desire) {
                             customerFunctions.howMany();
                         } else {
-                            customerFunctions.displayWares();
+                            const core = require(`./bamazon.js`)
+                            core.searchOptions();
                         };
                     })
                 } else if (answer.quantity > result[0].stock_quantity) {
@@ -112,24 +141,21 @@ const customerFunctions = {
                                         break;
                                     case `I want to exit Bamazon`:
                                         console.log(`\n`)
-                                        customerFunctions.exitBamazon();
+                                        core.exitBamazon();
                                         break;
     } }) } }) } 
     }) }) },
 
     reduceStock: function(amount) {
+        console.log(`--------------------------\n`)
         newQuantity = itemQuantity-amount;
         let query = `UPDATE products SET stock_quantity = ${newQuantity} WHERE item_id = ${itemId}`;
-        connection.query(query, function(err, result) {
+        db.query(query, function(err, result) {
             if (err) throw err;
         })
-        customerFunctions.exitBamazon();
+        core.exitBamazon();
     },
 
-    exitBamazon: function() {
-        console.log(`\n Thank you! Come again!`);
-        connection.end();
-    }
 
 }
 

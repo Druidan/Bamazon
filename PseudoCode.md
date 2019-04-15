@@ -49,10 +49,24 @@ This file contains all of my Pseudo Code and checklisting for this project. If y
           - [X] If they want to exit entirely, call the function that ends the connection.
 
 ## Bamazon v1.1
-- [ ]
+- [X] Fail to write pseudo code and get the features done anyway. Oops.
 
 ## Bamazon v2.0
-- [ ]
+- [X] Establish requirements in new bamazon Manager js file:
+  - [X] inquirer
+  - [X] mysql database connection js
+  - [X] core bamazon doc.
+- [X] Establish Manager Functions Object
+- [X] Export Manager Functions Object
+- [X] Import Manager Functions Object into BamazonJS.
+- [ ] Write the following Manager Functions:
+  - [X] View Products for Sale
+    - [X] View All
+    - [X] View By Department
+  - [X] View Low Inventory
+  - [X] Add to Inventory
+  - [X] Add new Product
+- [X] Write a switch function in BamazonJS that prompts the user to select between the above functions or exit Bamazon.
 
 ## Bamazon v3.0
 - [ ]
