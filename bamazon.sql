@@ -9,23 +9,21 @@ CREATE TABLE products (
     department_name VARCHAR(100) NOT NULL,
     stock_quantity INT DEFAULT 0,
     price DECIMAL(10,2) DEFAULT 0,
+    product_sales DECIMAL(10,2) DEFAULT 0,
     PRIMARY KEY (item_id)
+);
+
+CREATE TABLE departments (
+    department_id INT NOT NULL AUTO_INCREMENT,
+    department_name VARCHAR(100) NOT NULL,
+    over_head_costs DECIMAL(10,2) DEFAULT 0,
+    PRIMARY KEY (department_id)
 );
 
 SELECT * FROM products;
 
--- CREATE TABLE top_albums (
---     position INT NOT NULL,
---     artist VARCHAR(100) NULL,
---     album VARCHAR(100) NULL,
---     year INT NULL,
---     raw_total DECIMAL(10,4) NULL,
---     raw_usa DECIMAL(10,4) NULL,
---     raw_uk DECIMAL(10,4) NULL,
---     raw_eur DECIMAL(10,4) NULL,
---     raw_row DECIMAL(10,4) NULL,
---     PRIMARY KEY (position)
--- );
+SELECT * FROM departments;
+
 
 
 -- select * from top_albums;

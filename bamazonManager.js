@@ -32,7 +32,7 @@ const managerFunctions = {
     viewByDepartment: function() {
         console.log(`--------------------------\n`)
         depArr = [];
-        const query = `SELECT DISTINCT department_name FROM products`;
+        const query = `SELECT DISTINCT department_name FROM departments`;
         db.query(query, function(err, result) {
             if (err) throw err;
             result.forEach(item => {
@@ -136,7 +136,7 @@ const managerFunctions = {
     addProduct: function() {
         console.log(`--------------------------\n`)
         deptArr = [];
-        const query = `SELECT DISTINCT department_name FROM products`;
+        const query = `SELECT DISTINCT department_name FROM departments`;
         db.query(query, function(err, result) {
             if (err) throw err;
             result.forEach(item => {

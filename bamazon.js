@@ -102,6 +102,7 @@ coreFunctions = {
                     break;
                 case `Bamazon Supervisor`:
                     console.log(`\nSupervisor functionality coming soon!\n`)
+                    // coreFunctions.supervisorFunctions();
                     coreFunctions.employeeOptions();
                     break;
                 case `Exit Bamazon`:
@@ -154,6 +155,10 @@ coreFunctions = {
                     coreFunctions.managerOptions();
                     break;
     } }) },
+
+    supervisorFunctions: function() {
+
+    },
 
     exitBamazon: function() {
         console.log(`--------------------------\n`)
