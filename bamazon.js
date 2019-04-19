@@ -4,6 +4,7 @@ const inquirer = require(`inquirer`);
 const figlet = require(`figlet`);
 const bCF = require(`./bamazonCustomer`);
 const bMF = require(`./bamazonManager`);
+const bSF = require(`./bamazonSupervisor`);
 
 let justEntered = true;
 

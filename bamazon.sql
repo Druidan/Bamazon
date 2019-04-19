@@ -13,6 +13,8 @@ CREATE TABLE products (
     PRIMARY KEY (item_id)
 );
 
+USE bamazon;
+
 CREATE TABLE departments (
     department_id INT NOT NULL AUTO_INCREMENT,
     department_name VARCHAR(100) NOT NULL,
@@ -23,7 +25,5 @@ CREATE TABLE departments (
 SELECT * FROM products;
 
 SELECT * FROM departments;
-
-
 
 -- select * from top_albums;
